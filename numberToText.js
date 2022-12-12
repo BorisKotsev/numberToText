@@ -45,23 +45,23 @@ function convert(value) {
             output += "Сто";
         } else if (value > 399 && value < 1000) { output += "стотин"; } else { output += "ста"; }
 
-        let ducktape = false;
+        let ductTape = false;
 
         if (value % 100 < 100) {
             if (value % 100 == 1 || value % 100 == 2 || value % 100 == 3 ||
                 value % 100 == 4 || value % 100 == 5 || value % 100 == 6 ||
                 value % 100 == 7 || value % 100 == 8 || value % 100 == 9) {
-                ducktape = true;
+                ductTape = true;
 
                 output += " и ";
             } else if (value % 10 == 0 && value % 100 != 0) {
-                ducktape = true;
+                ductTape = true;
 
                 output += " и ";
             }
         }
 
-        if (!ducktape) { output += " "; }
+        if (!ductTape) { output += " "; }
 
         convert(value % 100);
     } else if (value >= 20) {
@@ -96,7 +96,7 @@ let secondNumber = Math.floor(difference * 100);
 if (secondNumber % 10 == 0 &&
     secondNumber != 10 && secondNumber != 20 && secondNumber != 30 &&
     secondNumber != 40 && secondNumber != 50 && secondNumber != 60 &&
-    secondNumber != 70 && secondNumber != 80 && secondNumber != 90) { secondNumber /= 10; } // 10 20 30 ... 
+    secondNumber != 70 && secondNumber != 80 && secondNumber != 90) { secondNumber /= 10; }  
 
 convert(firstNumber);
 
@@ -105,12 +105,12 @@ if (firstNumber > 10 && firstNumber < 20) {
     let tmp = output.replace('и ', '');
     output = tmp;
 }
-if (firstNumber % 10 == 2) {
+if (firstNumber % 10 == 2 && firstNumber != 12) {
     let tmp = output.substr(0, output.length - 1);
     tmp += "a";
     output = tmp;
 }
-
+ 
 if (secondNumber > 10 && secondNumber < 20) { output += " лева "; } else { output += " лева и "; }
 
 convert(secondNumber);
